@@ -1,0 +1,27 @@
+{
+	"name": "Pollgatory",
+	"version": "1.0",
+	"description": "You'll never do your own polls ever again!",
+	"icons" : {"16": "pollev-16.png",
+			   "48": "pollev-48.png",
+			  "128": "pollev-128.png"},
+	"permissions": [
+		"activeTab"
+	],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	}
+	"browser_action": {
+		"default_title": "Click to enable/disable"
+	},
+	"content_scripts" : [
+	{
+		"matches": ["https://pollev.com/*"],
+		"js": ["contentScript.js"],
+		"run_at": "document_idle",
+		"all_frames": true
+	}
+	],
+	"manifest_version" : 2
+}
